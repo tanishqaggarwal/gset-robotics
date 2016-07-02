@@ -19,10 +19,10 @@ psm.BAM1.setSpeedSync(leftMotorSpeed)
 
 def adjust(int light):
   initialDifference = black-light
-    psm.BAM1.setSpeed(75)
-    psm.BAM2.setSpeed(initialDifference)
-    sleep(1.5)
-    if (psm.BAS1.lightSensorNXT(True) <initialDifference) :
+  psm.BAM1.setSpeed(75)
+  psm.BAM2.setSpeed(initialDifference)
+  sleep(1.5)
+  if (psm.BAS1.lightSensorNXT(True) <initialDifference) :
       #if the updated color is less (more white) than the initial difference
       psm.BAM1.setSpeed(initialDifference)
       psm.BAM2.setSpeed(75)
@@ -30,8 +30,11 @@ def adjust(int light):
   
 
 while(not exit):
-	 if psm.BAS1.lightSensorNXT(True) < black -tolerance :
-      adjust(psm.BAS1.lightSensorNXT(True))
+	if (psm.BAS1.lightSensorNXT(True) < black -tolerance ):
+      		adjust(psm.BAS1.lightSensorNXT(True))
+     	elif (psm.BAS1.lightSensorNXTTrue)>black):
+		black = psm.BAS1.lightSensorNXT(True)
+
      
 
 
