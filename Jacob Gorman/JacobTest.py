@@ -31,7 +31,7 @@ while(not exit):
         psm.screen.termPrintln(str(counter))
     elif(color == blue):
         if((datetime.now() - last_time).seconds > 4):
-            counter += counter
+            counter += 1
             last_time = datetime.now()
     if (psm.isKeyPressed()):
         psm.BAM1.brake()
