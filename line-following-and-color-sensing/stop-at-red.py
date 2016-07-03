@@ -2,15 +2,14 @@ from PiStorms import PiStorms
 from time import sleep
 from HiTechnicColorV2 import HiTechnicColorV2
 from threading import Thread
+import Queue
 
 print "running program"
 psm = PiStorms()
 
 #exit variable will be used later to exit the program and return to PiStorms
 
-def linefollow():
-    global linefollowexit
-    linefollowexit = False
+def linefollow(linefollowexit, q):
     while(not linefollowexit):
         light = psm.BAS1.lightSensorNXT(True)
         
@@ -25,14 +24,14 @@ def linefollow():
             psm.BAM1.brake()
             psm.BAM2.brake()
             linefollowexit = True
+        q.put(linefollowexit)
+
     psm.BAM1.brake()
     psm.BAM2.brake()
     psm.BBM1.brake()
     psm.BBM2.brake()
 
-def findvicts():
-    global victsexit
-    victsexit = False
+def findvicts(linefollowexit, victsexit, q):
     while(not victsexit):
         color=hc.get_colornum()
         if color==2:  #Blue
@@ -47,14 +46,18 @@ def findvicts():
             print color
         sleep(0.1)
         psm.led(1,0,0,0)  #Should not be needed but is safer
+        q.put(linefollowexit)
+        q.put(victsexit)
 
 hc=HiTechnicColorV2()
 psm.BBS1.activateCustomSensorI2C()
 
-
-lf = Thread(target=linefollow)
+victsexit = False
+linefollowexit = False
+q = Queue.Queue()
+lf = Thread(target=linefollow, args = (linefollowexit, q))
 lf.start()
-fv = Thread(target=findvicts)
+fv = Thread(target=findvicts, args = (linefollowexit, victsexit, q))
 fv.start()
 
 #Main Loop
