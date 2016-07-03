@@ -12,7 +12,7 @@ exit = False
 while(not exit):
     light = psm.BAS1.lightSensorNXT(True)
     color = psm.BBS1.colorSensorNXT(True)
-    if(light <= 550):
+    if(light <= 55 0):
         psm.BAM2.brake()
         psm.BAM1.setSpeed(-50)
     else:
