@@ -11,16 +11,13 @@ psm.BBS1.activateCustomSensorI2C()
 blue = 2
 red = 9
 red2 = 8
+counter = 0
 last_time = datetime.now()
 exit = False
 
 while(not exit):
     light = psm.BAS1.lightSensorNXT(True)
     color = hc.get_colornum()
-
-    if ((datetime.now() - last_time).seconds > 3):
-        psm.led(1,0,0,0)    
-
     if(light <= 550):
         psm.BAM2.brake()
         psm.BAM1.setSpeed(-50)
@@ -35,9 +32,11 @@ while(not exit):
         exit = True
         break
     elif(color == blue):
-        if((datetime.now() - last_time).seconds > 3):
-            psm.led(1,0,0,255)
+        if((datetime.now() - last_time).seconds > 4):
+            counter += 1
             last_time = datetime.now()
+            psm.clearScreen()
+            psm.screen.termPrintln("I'm functioning Properly")
     if (psm.isKeyPressed()):
         psm.BAM1.brake()
         psm.BAM2.brake()
