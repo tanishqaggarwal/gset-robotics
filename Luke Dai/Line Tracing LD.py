@@ -9,11 +9,11 @@ psm=PiStorms()
 exit=False
 black=700
 white=400
-initspeed=-60
+initspeed=-50
 
 average=(black+white)/2
 RANGE=(black-average)*1.1
-MAX=100+initspeed
+MAX=75-abs(initspeed)
 
 while(not exit):
 	proportions=MAX*(psm.BAS1.lightSensorNXT(True)-average)/RANGE
@@ -29,10 +29,10 @@ while(not exit):
 		psm.screen.termPrintln("Exiting to menu")
 		psm.led(1,0,0,0)
 
-		psm.BAM1.float()
-		psm.BAM2.float()
-		psm.BBM1.float()
-		psm.BBM2.float()
+		psm.BAM1.brake()
+		psm.BAM2.brake()
+		psm.BBM1.brake()
+		psm.BBM2.brake()
 		sleep(0.5)
 		
 		exit = True
