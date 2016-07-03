@@ -1,6 +1,9 @@
 from PiStorms import PiStorms
 from time import sleep
+from HiTechnicColorV2 import HiTechnicColorV2
+
 print "running program"
+
 psm = PiStorms()
 hc = HiTechnicColorV2()
 psm.BBS1.activateCustomSensorI2C()
@@ -11,7 +14,7 @@ exit = False
 
 while(not exit):
     light = psm.BAS1.lightSensorNXT(True)
-    color = psm.BBS1.colorSensorNXT(True)
+    color = hc.get_colornum()
     if(light <= 550):
         psm.BAM2.brake()
         psm.BAM1.setSpeed(-50)
@@ -22,6 +25,7 @@ while(not exit):
         psm.BAM2.brake()
         psm.BAM1.brake()
     elif(color == blue):
+        psm.screen.clearScreen()
         psm.screen.termprintln("blue")
     if (psm.isKeyPressed()):
         psm.BAM1.brake()
