@@ -9,8 +9,8 @@ psm = PiStorms()
 exit = False
 #so the initial condition is that it detects the black first
 black = 800
-white = 600
-tolerance = 5
+white = 500
+tolerance = (black-white)*.07
 leftMotorSpeed = 75
 rightMotorSpeed = 75
 
