@@ -9,14 +9,15 @@ psm=PiStorms()
 exit=False
 black=700
 white=400
-initspeed=-50
+initspeed=(-50)
 
 average=(black+white)/2
-RANGE=(black-white)/2*1.1
-MAX=75-abs(initspeed)
+width=(black-white)/2*1.1
+largest=75-abs(initspeed)
 
 while(not exit):
-	proportions=MAX*(psm.BAS1.lightSensorNXT(True)-average)/RANGE
+    light=psm.BAS1.lightSensorNXT(True)
+	proportions=largest*(light-average)/width
 	psm.BAM1.setSpeed(initspeed-proportions)
 	psm.BAM2.setSpeed(initspeed+proportions)
 
@@ -31,8 +32,6 @@ while(not exit):
 
 		psm.BAM1.brake()
 		psm.BAM2.brake()
-		psm.BBM1.brake()
-		psm.BBM2.brake()
 		sleep(0.5)
 		
 		exit = True
