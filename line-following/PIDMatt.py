@@ -31,9 +31,9 @@ def adjust(light):
 
 while(not exit):
 	if (psm.BAS1.lightSensorNXT(True) < black -tolerance ):
-     	adjust(psm.BAS1.lightSensorNXT(True))
+		adjust(psm.BAS1.lightSensorNXT(True))
     elif (psm.BAS1.lightSensorNXT(True)>black):
-    	black = psm.BAS1.lightSensorNXT(True)
+	 	black = psm.BAS1.lightSensorNXT(True)
 
      
 
