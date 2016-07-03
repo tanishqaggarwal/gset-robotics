@@ -43,6 +43,8 @@ def findvicts():
         elif color==8: #Red
             linefollowexit = True
             victsexit = True
+        else:
+            print color
         sleep(0.1)
         psm.led(1,0,0,0)  #Should not be needed but is safer
 
@@ -59,7 +61,7 @@ fv.start()
 mainexit = False
 while(not mainexit):
     sleep(0.05)
-    
+
     if(psm.isKeyPressed() == True): # if the GO button is pressed
         psm.screen.clearScreen()
         psm.screen.termPrintln("")
