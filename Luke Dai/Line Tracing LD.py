@@ -13,7 +13,7 @@ initspeed=-60
 
 average=(black-white)/2
 RANGE=(black-average)*1.1
-MAX=100-initspeed
+MAX=100+initspeed
 
 while(not exit):
 	proportions=MAX*(psm.BAS1.lightSensorNXT(True)-average)/RANGE
@@ -23,14 +23,17 @@ while(not exit):
 	psm.led(1,255,0,255) 
 	sleep(0.01)
 
-	if(psm.isKeyPressed()==True): # if the GO button is pressed
+	if(psm.isKeyPressed()): # if the GO button is pressed
 		psm.screen.clearScreen()
 		psm.screen.termPrintln("")
 		psm.screen.termPrintln("Exiting to menu")
 		psm.led(1,0,0,0)
-		sleep(0.5)
 
 		psm.BAM1.float()
 		psm.BAM2.float()
-
-		exit=True
+		psm.BBM1.float()
+		psm.BBM2.float()
+		sleep(0.5)
+		
+		exit = True
+		break
