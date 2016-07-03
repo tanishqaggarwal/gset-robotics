@@ -31,7 +31,7 @@ while(not exit):
         psm.screen.termPrintln(str(counter))
         exit = True
     elif(color == blue):
-        if((datetime.now() - last_time).seconds > 3):
+        if((datetime.now() - last_time).seconds > 0):
             counter += 1
             last_time = datetime.now()
             psm.screen.clearScreen()
