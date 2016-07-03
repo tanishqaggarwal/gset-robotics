@@ -19,17 +19,5 @@ while (not exit):
 
 	if current_difference > TOLERANCE:
 		if previous_difference < current_difference:
-			
-
 
 	previous_difference = current_difference
-
-
-
-# psm.BAM1.setSpeed(75)
-# psm.BBM1.setSpeed(75)
-
-# sleep(5)
-
-# psm.BAM1.float()
-# psm.BBM1.float()
