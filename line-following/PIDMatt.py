@@ -18,7 +18,7 @@ rightMotorSpeed = 75
 psm.BAM1.setSpeedSync(leftMotorSpeed)
 
 def adjust(light):
-    initialDifference = black-light
+	initialDifference = black-light
     psm.BAM1.setSpeed(75)
     psm.BAM2.setSpeed(initialDifference)
     sleep(1.5)
@@ -30,14 +30,18 @@ def adjust(light):
   
 
 while(not exit):
-    if (psm.BAS1.lightSensorNXT(True) < black -tolerance ):
+	if (psm.BAS1.lightSensorNXT(True) < black -tolerance ):
      	adjust(psm.BAS1.lightSensorNXT(True))
-    elif (psm.BAS1.lightSensorNXTTrue)>black):
- 	black = psm.BAS1.lightSensorNXT(True)
-    psm.led(1,255,0,255) 
-    sleep(0.1)
+    elif (psm.BAS1.lightSensorNXT(True)>black):
+	 	black = psm.BAS1.lightSensorNXT(True)
 
-    if(psm.isKeyPressed() == True): # if the GO button is pressed
+     
+
+
+  	psm.led(1,255,0,255) 
+  	sleep(0.1)
+
+  	if(psm.isKeyPressed() == True): # if the GO button is pressed
     	psm.screen.clearScreen()
     	psm.screen.termPrintln("")
     	psm.screen.termPrintln("Exiting to menu")
