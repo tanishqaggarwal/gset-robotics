@@ -40,7 +40,7 @@ def findvicts():
             sleep(3)
             psm.led(1,0,0,0)
             sleep(2)  #need to sleep long enough to not double count
-        elif color==8: #Red
+        elif color==9: #Red
             linefollowexit = True
             victsexit = True
         else:
