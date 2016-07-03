@@ -3,21 +3,19 @@ from time import sleep
 print "running program"
 psm = PiStorms()
 
-exit = True
+exit = False
 
-WHITE = 600
-BLACK = 800
-TOLERANCE = 20
+while(not exit):
+    light = psm.BAS1.lightSensorNXT(True)
+    
+    if (light <= 550):
+        psm.BAM2.brake()
+        psm.BAM1.setSpeed(-100)
+    else:
+        psm.BAM1.setSpeed(50)
+        psm.BAM2.setSpeed(-100)
 
-psm.BAM1.setSpeedSync()
-
-previous_difference = 0
-direction = "LEFT" #Or "RIGHT"
-while (not exit):
-	light = psm.BAS1.lightSensorNXT(True)
-	current_difference = abs(light - BLACK)
-
-	if current_difference > TOLERANCE:
-		if previous_difference < current_difference:
-
-	previous_difference = current_difference
+    if (psm.isKeyPressed()):
+        psm.BAM1.brake()
+        psm.BAM2.brake()
+        exit = True
