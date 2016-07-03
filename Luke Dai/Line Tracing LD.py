@@ -11,7 +11,7 @@ black=700
 white=400
 initspeed=-60
 
-average=(black-white)/2
+average=(black+white)/2
 RANGE=(black-average)*1.1
 MAX=100+initspeed
 
