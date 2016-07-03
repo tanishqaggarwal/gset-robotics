@@ -2,12 +2,14 @@ from PiStorms import PiStorms
 from time import sleep
 from HiTechnicColorV2 import HiTechnicColorV2
 from threading import Thread
+from datetime import datetime
 import Queue
 
 print "running program"
 psm = PiStorms()
 
 #exit variable will be used later to exit the program and return to PiStorms
+exit = False
 
 def linefollow():
     while(not exit):
@@ -56,7 +58,6 @@ fv = Thread(target=findvicts)
 fv.start()
 
 #Main Loop
-mainexit = False
 while(not exit):
     sleep(0.05)
 
