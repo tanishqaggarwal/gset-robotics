@@ -17,4 +17,6 @@ while(not exit):
     	psm.BAM2.setSpeed(-75)
 
     if (psm.isKeyPressed()):
+    	psm.BAM1.float()
+    	psm.BAM2.float()
         exit = True
