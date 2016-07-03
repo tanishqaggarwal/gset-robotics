@@ -7,8 +7,8 @@ psm=PiStorms()
 
 #exit variable will be used later to exit the program and return to PiStorms
 exit=False
-black=800
-white=600
+black=700
+white=400
 initspeed=60
 
 average=(black-white)/2
