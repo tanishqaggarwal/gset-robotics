@@ -12,6 +12,7 @@ blue = 2
 red = 9
 red2 = 8
 counter = 0
+last_time = 0
 exit = False
 
 while(not exit):
