@@ -8,8 +8,8 @@ psm = PiStorms()
 #exit variable will be used later to exit the program and return to PiStorms
 exit = False
 #so the initial condition is that it detects the black first
-black = 800
-white = 500
+black = 700
+white = 400
 tolerance = (black-white)*.07
 leftMotorSpeed = 75
 rightMotorSpeed = 75
