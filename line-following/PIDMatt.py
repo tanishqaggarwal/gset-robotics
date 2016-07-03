@@ -23,7 +23,7 @@ def adjust(light):
 	psm.BAM1.setSpeed(25*-1-intialDifference)
 	psm.BAM2.setSpeed(-1*initialDifference+50)
 	sleep(.25)
-	if (psm.BAS1.lightSensorNXT(True) <initialDifference) :
+	if (psm.BBS1.lightSensorNXT(True) <initialDifference) :
 		#if the updated color is less (more white) than the initial difference
 		psm.BAM1.setSpeed(-1*initialDifference+50)
 		psm.BAM2.setSpeed(-25-initialDifference)
@@ -31,10 +31,10 @@ def adjust(light):
   
 
 while(not exit):
-	if (psm.BAS1.lightSensorNXT(True) < black -tolerance ):
-		adjust(psm.BAS1.lightSensorNXT(True))
-	elif (psm.BAS1.lightSensorNXT(True)>black):
-		black = psm.BAS1.lightSensorNXT(True)
+	if (psm.BBS1.lightSensorNXT(True) < black -tolerance ):
+		adjust(psm.BBS1.lightSensorNXT(True))
+	elif (psm.BBS1.lightSensorNXT(True)>black):
+		black = psm.BBS1.lightSensorNXT(True)
 	psm.led(1,255,0,255) 
 	sleep(0.1)
 	if(psm.isKeyPressed() == True): # if the GO button is pressed
