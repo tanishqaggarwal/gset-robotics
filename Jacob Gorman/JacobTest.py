@@ -1,6 +1,7 @@
 from PiStorms import PiStorms
 from time import sleep
 from HiTechnicColorV2 import HiTechnicColorV2
+from datetime import datetime
 
 print "running program"
 
@@ -10,7 +11,7 @@ psm.BBS1.activateCustomSensorI2C()
 blue = 2
 red = 9
 red2 = 8
-
+counter = 0
 exit = False
 
 while(not exit):
@@ -25,9 +26,12 @@ while(not exit):
     if(color == red or color == red2):
         psm.BAM2.brake()
         psm.BAM1.brake()
-    elif(color == blue):
         psm.screen.clearScreen()
-        psm.screen.termPrintln("blue")
+        psm.screen.termPrintln(str(counter))
+    elif(color == blue):
+        if((datetime.now() - last_time).seconds > 4):
+            counter += counter
+            last_time = datetime.now()
     if (psm.isKeyPressed()):
         psm.BAM1.brake()
         psm.BAM2.brake()
