@@ -11,8 +11,8 @@ exit = False
 black = 700
 white = 400
 tolerance = (black-white)*.07
-leftMotorSpeed = -50
-rightMotorSpeed = -50
+leftMotorSpeed = -25
+rightMotorSpeed = -25
 
 
 psm.BAM1.setSpeedSync(leftMotorSpeed)
@@ -20,13 +20,13 @@ psm.BAM2.setSpeedSync(leftMotorSpeed)
 
 def adjust(light):
 	initialDifference = black-light
-	psm.BAM1.setSpeed(50*-1-intialDifference)
+	psm.BAM1.setSpeed(25*-1-intialDifference)
 	psm.BAM2.setSpeed(-1*initialDifference+50)
-	sleep(.5)
+	sleep(.25)
 	if (psm.BAS1.lightSensorNXT(True) <initialDifference) :
 		#if the updated color is less (more white) than the initial difference
 		psm.BAM1.setSpeed(-1*initialDifference+50)
-		psm.BAM2.setSpeed(-50-initialDifference)
+		psm.BAM2.setSpeed(-25-initialDifference)
 
   
 
