@@ -20,7 +20,7 @@ while(not exit):
     if(color == red):
         psm.BAM2.brake()
         psm.BAM1.brake()
-    elif(color == blue:
+    elif(color == blue):
         psm.screen.termprintln("blue")
     if (psm.isKeyPressed()):
         psm.BAM1.brake()
