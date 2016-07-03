@@ -12,7 +12,7 @@ white=400
 initspeed=-50
 
 average=(black+white)/2
-RANGE=(black-average)*1.1
+RANGE=(black-white)/2*1.1
 MAX=75-abs(initspeed)
 
 while(not exit):
@@ -36,4 +36,3 @@ while(not exit):
 		sleep(0.5)
 		
 		exit = True
-		break
