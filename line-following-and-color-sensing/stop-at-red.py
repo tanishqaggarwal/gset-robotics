@@ -7,11 +7,9 @@ print "running program"
 psm = PiStorms()
 
 #exit variable will be used later to exit the program and return to PiStorms
-linefollowingexit = False
-victsexit = False
 
 def linefollow():
-    global linefollowexit
+    global linefollowexit = False
     while(not linefollowexit):
         light = psm.BAS1.lightSensorNXT(True)
         
@@ -32,8 +30,8 @@ def linefollow():
     psm.BBM2.brake()
 
 def findvicts():
-    global victsexit
-    global linefollowexit
+    global victsexit = False
+    global linefollowexit = False
     while(not victsexit):
         color=hc.get_colornum()
         if color==2:  #Blue
