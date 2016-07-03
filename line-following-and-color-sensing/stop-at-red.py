@@ -58,16 +58,16 @@ fv.start()
 #Main Loop
 mainexit = False
 while(not mainexit):
-  sleep(0.05)
-  
-  if(psm.isKeyPressed() == True): # if the GO button is pressed
-    psm.screen.clearScreen()
-    psm.screen.termPrintln("")
-    psm.screen.termPrintln("Exiting to menu")
-    psm.led(1,0,0,0)
-    psm.BAM1.brake()
-    psm.BAM2.brake()
-    psm.BBM1.brake()
-    psm.BBM2.brake()    
-    sleep(0.5)
-    mainexit = True
+    sleep(0.05)
+    
+    if(psm.isKeyPressed() == True): # if the GO button is pressed
+        psm.screen.clearScreen()
+        psm.screen.termPrintln("")
+        psm.screen.termPrintln("Exiting to menu")
+        psm.led(1,0,0,0)
+        psm.BAM1.brake()
+        psm.BAM2.brake()
+        psm.BBM1.brake()
+        psm.BBM2.brake()    
+        sleep(0.5)
+        mainexit = True
