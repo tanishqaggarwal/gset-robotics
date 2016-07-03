@@ -16,6 +16,7 @@ rightMotorSpeed = -75
 
 
 psm.BAM1.setSpeedSync(leftMotorSpeed)
+psm.BAM2.setSpeedSync(leftMotorSpeed)
 
 def adjust(light):
 	initialDifference = black-light
