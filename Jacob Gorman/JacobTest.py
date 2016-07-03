@@ -11,10 +11,10 @@ while(not exit):
     
     if (light <= 550):
 		psm.BAM2.brake()
-    	psm.BAM1.setSpeed(-50)
+    	psm.BAM1.setSpeed(-100)
     else:
-    	psm.BAM1.setSpeed(25)
-    	psm.BAM2.setSpeed(-50)
+    	psm.BAM1.setSpeed(50)
+    	psm.BAM2.setSpeed(-100)
 
     if (psm.isKeyPressed()):
     	psm.BAM1.brake()
