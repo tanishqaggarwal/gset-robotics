@@ -30,12 +30,11 @@ while(not exit):
         psm.screen.clearScreen()
         psm.screen.termPrintln(str(counter))
         exit = True
-        break
     elif(color == blue):
-        if((datetime.now() - last_time).seconds > 4):
+        if((datetime.now() - last_time).seconds > 3):
             counter += 1
             last_time = datetime.now()
-            psm.clearScreen()
+            psm.screen.clearScreen()
             psm.screen.termPrintln("I'm functioning Properly")
     if (psm.isKeyPressed()):
         psm.BAM1.brake()
