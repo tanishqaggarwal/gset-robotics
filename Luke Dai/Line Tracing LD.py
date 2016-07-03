@@ -21,7 +21,7 @@ while(not exit):
 	psm.BAM2.setSpeed(initspeed+proportions)
 
 	psm.led(1,255,0,255) 
-	sleep(0.01)
+	sleep(0.1)
 
 	if(psm.isKeyPressed()): # if the GO button is pressed
 		psm.screen.clearScreen()
