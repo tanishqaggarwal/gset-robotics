@@ -2,7 +2,8 @@ from PiStorms import PiStorms
 from time import sleep
 print "running program"
 psm = PiStorms()
-
+hc = HiTechnicColorV2()
+psm.BBS1.activateCustomSensorI2C()
 blue = 2
 red = 8
 
