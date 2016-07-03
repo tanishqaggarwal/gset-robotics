@@ -17,8 +17,8 @@ MAX=100-initspeed
 
 while(not exit):
 	proportions=MAX*(psm.BAS1.lightSensorNXT(True)-average)/RANGE
-	psm.BAM1.setSpeed(init+proportions)
-	psm.BAM2.setSpeed(init-proportions)
+	psm.BAM1.setSpeed(initspeed+proportions)
+	psm.BAM2.setSpeed(initspeed-proportions)
 
 
 
