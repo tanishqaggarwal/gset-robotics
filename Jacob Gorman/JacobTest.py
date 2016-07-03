@@ -22,7 +22,7 @@ while(not exit):
         psm.BAM2.brake()
         psm.BAM1.setSpeed(-75)
     else:
-        psm.BAM1.setSpeed(40)
+        psm.BAM1.brake()
         psm.BAM2.setSpeed(-75)
     if(color == red or color == red2):
         psm.BAM2.brake()
