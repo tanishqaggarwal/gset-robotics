@@ -11,6 +11,7 @@ linefollowingexit = False
 victsexit = False
 
 def linefollow():
+    global linefollowexit
     while(not linefollowexit):
         light = psm.BAS1.lightSensorNXT(True)
         
@@ -31,6 +32,8 @@ def linefollow():
     psm.BBM2.brake()
 
 def findvicts():
+    global victsexit
+    global linefollowexit
     while(not victsexit):
         color=hc.get_colornum()
         if color==2:  #Blue
