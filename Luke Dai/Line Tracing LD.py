@@ -9,17 +9,20 @@ psm=PiStorms()
 exit=False
 black=700
 white=400
-initspeed=(-50)
+leftinit=(-50)    #motor value when see black
+leftrange=(-50)   #motor value + init when see black
+rightinit=(-25)
+rightrange=(75)
+
 
 average=(black+white)/2
 width=(black-white)/2*1.1
-largest=75-abs(initspeed)
 
 while(not exit):
     light=psm.BAS1.lightSensorNXT(True)
-    proportions=largest*(light-average)/width
-    psm.BAM1.setSpeed(initspeed-proportions)
-    psm.BAM2.setSpeed(initspeed+proportions)
+    proportions=(light-average)/width
+    psm.BAM1.setSpeed(rightinit+proportions*rightrange)
+    psm.BAM2.setSpeed(leftspeed+proportions*leftrange)
 
     psm.led(1,255,0,255) 
     sleep(0.1)
