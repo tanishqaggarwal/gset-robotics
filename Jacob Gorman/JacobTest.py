@@ -42,3 +42,5 @@ while(not exit):
         exit = True
 
 psm.led(1, 255, 255, 255)
+sleep(1)
+psm.led(1,0,0,0)
