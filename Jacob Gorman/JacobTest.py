@@ -40,3 +40,5 @@ while(not exit):
         psm.BAM1.brake()
         psm.BAM2.brake()
         exit = True
+
+psm.led(1, 0, 0, 0)
