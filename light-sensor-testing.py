@@ -1,14 +1,33 @@
 from PiStorms import PiStorms
 from time import sleep
-print "running program"
-psm = PiStorms()
+from HiTechnicColorV2 import HiTechnicColorV2
+from datetime import datetime
 
+print "running program"
+
+psm = PiStorms()
+hc = HiTechnicColorV2()
+psm.BBS1.activateCustomSensorI2C()
+blue = 2
+red = 9
+red2 = 8
+counter = 0
+last_time = datetime.now()
 exit = False
 
-while(not exit):
-    light = psm.BAS1.lightSensorNXT(True)
-    psm.screen.clearScreen()
-    psm.screen.termPrintln(str(light))
+botDiam = 17.5
+wheelDiam = 6.5
 
-    if (psm.isKeyPressed() == True):
-        exit = True
+target=90
+translate=target*botDiam/(WheelDiam)
+
+psm.BAM1.resetPos()
+initialEncoderValue = psm.BAM1.pos()
+while(psm.BAM1.pos()<translate+initialEncoderValue):
+    psm.BAM1.setSpeed(50)
+    psm.BAM2.setSpeed(-50)
+
+
+psm.led(1, 255, 255, 255)
+sleep(1)
+psm.led(1,0,0,0)
