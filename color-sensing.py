@@ -6,6 +6,7 @@ import os
 
 exit = False
 
+psm=PiStorms()
 hc=HiTechnicColorV2()
 
 while(not exit):
