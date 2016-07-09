@@ -21,8 +21,8 @@ wheelDiam = 6.5
 target=90
 translate=target*botDiam/(WheelDiam)
 
-psm.BAM1.resetPos();
-initialEncoderValue = psm.BAM1.pos();
+psm.BAM1.resetPos()
+initialEncoderValue = psm.BAM1.pos()
 while(psm.BAM1.pos()<translate+initialEncoderValue) {
     psm.BAM1.setSpeed(50)
     psm.BAM2.setSpeed(-50)
