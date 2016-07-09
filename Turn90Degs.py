@@ -19,7 +19,7 @@ botDiam = 17.5
 wheelDiam = 6.5
 
 target=90
-translate=target*botDiam/(WheelDiam)
+translate=target*botDiam/(wheelDiam)
 
 psm.BAM1.resetPos()
 initialEncoderValue = psm.BAM1.pos()
