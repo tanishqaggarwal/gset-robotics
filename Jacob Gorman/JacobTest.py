@@ -48,18 +48,18 @@ while(not exit):
             psm.screen.termPrintln("I'm functioning Properly")
     if (psm.isKeyPressed()):
         psm.BAM1.brake()
-        psm.BAM2.brake()
+        psm.BBM1.brake()
         exit = True
 
 psm.led(1, 255, 255, 255)
 sleep(1)
 psm.led(1,0,0,0)
 
-psm.BAM1.setSpeed(-50)
-psm.BAM2.setSpeed(-50)
+psm.BAM1.setSpeed(-68)
+psm.BBM1.setSpeed(-50)
 sleep(2.5)
 psm.BAM1.brake()
-psm.BAM2.brake()
+psm.BBM1.brake()
 """sleep(0.2)
 ninetydegrees(1)
 
