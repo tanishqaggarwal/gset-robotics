@@ -26,11 +26,20 @@ def move(direction):
         psm.BAM1.setSpeed(100)
         psm.BBM1.setSpeed(90)
 
+def brake():
+    psm.BAM1.brake()
+    psm.BBM1.brake()
+
 def ninetydegrees(direction):
     if direction == "right":
         s = -1
     else:
         s = 1
+
+    psm.BAM1.setSpeed(s * 50)
+    psm.BBM1.setSpeed(s * -50)
+    sleep(0.285)
+    brake()
 
 def touch():
     if (psm.BAS2.isTouchedNXT() and psm.BBS2.isTouchedNXT()):
@@ -42,11 +51,6 @@ def masontouch():
         return True
     return False
 
-    psm.BAM1.setSpeed(s * 50)
-    psm.BBM1.setSpeed(s * -50)
-    sleep(0.285)
-    psm.BBM1.brake()
-    psm.BAM1.brake()
 
 while(not exit):
     light = psm.BAS1.lightSensorNXT(True)
@@ -72,8 +76,7 @@ while(not exit):
             psm.BAM1.setSpeed(25)
             psm.BBM1.setSpeed(-50)
         if(color == red or color == red2):
-            psm.BBM1.brake()
-            psm.BAM1.brake()
+            brake()
             psm.screen.clearScreen()
             psm.screen.termPrintln(str(counter))
             exit = True
@@ -84,8 +87,7 @@ while(not exit):
                 psm.screen.clearScreen()
                 psm.screen.termPrintln("I'm functioning Properly")
         if (psm.isKeyPressed()):
-            psm.BAM1.brake()
-            psm.BBM1.brake()
+            brake()
             exit = True
 
 psm.led(1, 255, 255, 255)
@@ -94,13 +96,14 @@ psm.led(1,0,0,0)
 
 move("forward")
 sleep(2.5)
+brake()
 move("backward")
-sleep(0.1)
+sleep(0.3)
+brake()
 ninetydegrees("right")
 
 greenfound = False
 
-t = datetime.now()
 done = False
 print "In stage where it's moving towards right room"
 while(not done):
@@ -108,17 +111,17 @@ while(not done):
     color = hc.get_colornum()
     if (color == green or touch()):
         sleep(0.5)
-        psm.BAM1.brake()
-        psm.BBM1.brake()
+        brake()
         done = True
         if (color == green):
             greenfound = True
         break
 
+brake()
+
 if not greenfound:
 
     print "In stage where it's moving towards left room"
-    t = datetime.now()
     done = False
     while(not done):
         move("backward")
@@ -132,17 +135,16 @@ if not greenfound:
             greenfound = True
             break
 
-    psm.BAM1.brake()
-    psm.BBM1.brake()
+    brake()
 
     if not greenfound:
         print "Now moving towards central room."
         move("forward")
         sleep(3)
+        brake()
         ninetydegrees("left")
         move("forward")
         sleep(0.5)
-        psm.BAM1.brake()
-        psm.BBM1.brake()
+        brake()
 
 print "Now in green room."
