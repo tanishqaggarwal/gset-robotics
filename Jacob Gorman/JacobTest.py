@@ -71,7 +71,7 @@ while(not exit):
         brake()
         ninetydegrees("left")
         move("forward")
-        distance(1)
+        distance(1.5)
         brake()
         ninetydegrees("left")
         while(psm.BAS1.lightSensorNXT(True) < 550):
