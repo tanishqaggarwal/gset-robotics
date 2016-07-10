@@ -17,10 +17,15 @@ def ninetydegrees(direction):
     else:
         s = -1
 
-    psm.BAM1.setSpeed(s * 50)
-    psm.BBM1.setSpeed(s * -50)
+    psm.BAM1.setSpeed(s * 100)
+    psm.BBM1.setSpeed(s * -100)
     sleep(0.285)
     brake()
 
 ninetydegrees("left")
-ninetydegrees("right")
+sleep(1)
+ninetydegrees("left")
+sleep(1)
+ninetydegrees("left")
+sleep(1)
+ninetydegrees("left")
