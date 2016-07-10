@@ -13,6 +13,7 @@ red = 9
 red2 = 8
 green = 4
 purple = 12
+purple2 = 11
 
 counter = 0
 last_time = datetime.now()
@@ -21,10 +22,10 @@ exit = False
 def move(direction):
     if direction == "forward":
         psm.BAM1.setSpeed(-100)
-        psm.BBM1.setSpeed(-90)
+        psm.BBM1.setSpeed(-100)
     else:
         psm.BAM1.setSpeed(100)
-        psm.BBM1.setSpeed(90)
+        psm.BBM1.setSpeed(100)
 
 def brake():
     psm.BAM1.brake()
@@ -39,7 +40,7 @@ def ninetydegrees(direction):
 
     psm.BAM1.setSpeed(s * 100)
     psm.BBM1.setSpeed(s * -100)
-    distance(0.285)
+    distance(0.3)
     brake()
 
 def touch():
@@ -96,7 +97,7 @@ while(not exit):
                 counter += 1
                 last_time = datetime.now()
                 psm.screen.clearScreen()
-                psm.screen.termPrintln("I'm functioning Properly")
+                psm.screen.termPrintln("Victim found: total number: " + str(counter))
 
 psm.screen.clearScreen()
 psm.screen.termPrintln(str(counter))
@@ -109,7 +110,7 @@ move("forward")
 distance(1)
 brake()
 move("backward")
-distance(0.1)
+distance(0.15)
 brake()
 ninetydegrees("right")
 
@@ -131,13 +132,13 @@ while(not done):
 brake()
 
 if not greenfound:
-
+    t = datetime.now()
     print "In stage where it's moving towards left room"
     done = False
     while(not done):
         move("backward")
         color = hc.get_colornum()
-        if (color == purple):
+        if (color == purple2 or color == purple): #mason touch for testing purposes
             done = True
             break
         if (color == green):
@@ -145,13 +146,18 @@ if not greenfound:
             done = True
             greenfound = True
             break
+	if ((datetime.now() - t).seconds > 15):
+	    done = True
+            move("forward")
+            distance(0.7)
+            break
 
     brake()
 
     if not greenfound:
         print "Now moving towards central room."
         move("forward")
-        distance(1)
+        distance(0.5)
         brake()
         ninetydegrees("left")
         move("forward")
