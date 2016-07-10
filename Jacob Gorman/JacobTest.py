@@ -11,9 +11,19 @@ psm.BBS1.activateCustomSensorI2C()
 blue = 2
 red = 9
 red2 = 8
+green = 4
+
 counter = 0
 last_time = datetime.now()
 exit = False
+
+def ninetydegrees(s) :
+    psm.BAM1.setSpeed(s * 50)
+    psm.BAM2.setSpeed(s * -50)
+    sleep(0.285)
+    psm.BAM2.brake()
+    psm.BAM1.brake()
+
 
 while(not exit):
     light = psm.BAS1.lightSensorNXT(True)
@@ -44,3 +54,38 @@ while(not exit):
 psm.led(1, 255, 255, 255)
 sleep(1)
 psm.led(1,0,0,0)
+
+psm.BAM1.setSpeedSync(-50)
+sleep(5)
+psm.BAM1.setSpeedSync(20)
+sleep(1)
+ninetydegrees(1)
+t = datetime.now()
+done = False
+while(not done and (datetime.now() - t).seconds < 15):
+    psm.BAM1.setSpeedSync(-50)
+    color = hc.get_colornum()
+    if color == green:
+        sleep(0.5)
+        psm.BAM1.brake()
+        psm.BAM2.brake()
+        done = True
+        break
+t = datetime.now()
+done = False
+while(not done and (datetime.now()-t).seconds < 20):
+    psm.BAM1.setSpeedSync(-50)
+    color = hc.get_colornum()
+    if color == green:
+        sleep(0.5)
+        psm.BAM1.brake()
+        psm.BAM2.brake()
+        done = True
+        break
+psm.BAM1.setSpeedSync(50)
+sleep(3)
+ninetydegrees(-1)
+psm.BAM1.setSpeedSync(-50)
+sleep(3)
+psm.BAM1.brake()
+psm.BAM2.brake()
