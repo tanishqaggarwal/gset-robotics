@@ -60,12 +60,19 @@ while(not exit):
         #Do circumvention routine
         move("backward")
         sleep(0.5)
+        brake()
         ninetydegrees("right")
         move("forward")
         sleep(1)
+        brake()
         ninetydegrees("left")
         move("forward")
-        sleep(0.5)
+        sleep(1.5)
+        brake()
+        ninetydegrees("left")
+        move("forward")
+        sleep(0.4)
+        brake()
         ninetydegrees("right")
     else:
         #line follow, victim track
