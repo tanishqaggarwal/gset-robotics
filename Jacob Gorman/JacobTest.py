@@ -164,3 +164,6 @@ if not greenfound:
         brake()
 
 print "Now in green room."
+psm.led(1, 0, 255, 0)
+distance(1)
+psm.led(1,0,0,0)
