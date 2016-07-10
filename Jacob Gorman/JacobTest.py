@@ -29,6 +29,7 @@ def move(direction):
 def brake():
     psm.BAM1.brake()
     psm.BBM1.brake()
+    sleep(0.5)
 
 def ninetydegrees(direction):
     if direction == "right":
@@ -70,7 +71,7 @@ while(not exit):
         brake()
         ninetydegrees("left")
         move("forward")
-        distance(0.75)
+        distance(1)
         brake()
         ninetydegrees("left")
         move("forward")
@@ -110,7 +111,6 @@ brake()
 move("backward")
 distance(0.1)
 brake()
-sleep(0.4)
 ninetydegrees("right")
 
 greenfound = False
@@ -153,7 +153,6 @@ if not greenfound:
         move("forward")
         distance(1)
         brake()
-        sleep(0.4)
         ninetydegrees("left")
         move("forward")
         distance(0.5)
