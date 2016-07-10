@@ -8,6 +8,7 @@ exit = False
 
 psm=PiStorms()
 hc=HiTechnicColorV2()
+psm.BBS1.activateCustomSensorI2C()
 
 while(not exit):
 	color=hc.get_colornum()
