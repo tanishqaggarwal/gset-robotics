@@ -20,22 +20,22 @@ exit = False
 
 def ninetydegrees(s) :
     psm.BAM1.setSpeed(s * 50)
-    psm.BAM2.setSpeed(s * -50)
+    psm.BBM1.setSpeed(s * -50)
     sleep(0.285)
-    psm.BAM2.brake()
+    psm.BBM1.brake()
     psm.BAM1.brake()
 
 while(not exit):
     light = psm.BAS1.lightSensorNXT(True)
     color = hc.get_colornum()
     if(light <= 550):
-        psm.BAM2.brake()
+        psm.BBM1.brake()
         psm.BAM1.setSpeed(-50)
     else:
         psm.BAM1.setSpeed(25)
-        psm.BAM2.setSpeed(-50)
+        psm.BBM1.setSpeed(-50)
     if(color == red or color == red2):
-        psm.BAM2.brake()
+        psm.BBM1.brake()
         psm.BAM1.brake()
         psm.screen.clearScreen()
         psm.screen.termPrintln(str(counter))
@@ -55,8 +55,8 @@ psm.led(1, 255, 255, 255)
 sleep(1)
 psm.led(1,0,0,0)
 
-psm.BAM1.setSpeed(-68)
-psm.BBM1.setSpeed(-50)
+psm.BAM1.setSpeed(-100)
+psm.BBM1.setSpeed(-90)
 sleep(2.5)
 psm.BAM1.brake()
 psm.BBM1.brake()
@@ -73,7 +73,7 @@ while(not done and (datetime.now() - t).seconds < 15):
     if color == green:
         sleep(0.5)
         psm.BAM1.brake()
-        psm.BAM2.brake()
+        psm.BBM1.brake()
         done = True
         greenfound = True
         break
@@ -87,7 +87,7 @@ if not greenfound:
         if color == green:
             sleep(0.5)
             psm.BAM1.brake()
-            psm.BAM2.brake()
+            psm.BBM1.brake()
             done = True
             greenfound = True
             break
@@ -99,5 +99,5 @@ if not greenfound:
         psm.BAM1.setSpeedSync(-50)
         sleep(3)
         psm.BAM1.brake()
-        psm.BAM2.brake()"""
+        psm.BBM1.brake()"""
 

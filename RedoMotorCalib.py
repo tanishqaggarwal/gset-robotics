@@ -7,10 +7,10 @@ print "running program"
 
 psm = PiStorms()
 
-psm.BAM2.setSpeed(-50)
-psm.BBM1.setSpeed(-20)
+psm.BAM1.setSpeed(-70)
+psm.BBM1.setSpeed(-60)
 
 sleep(5)
 
-psm.BAM2.brake()
 psm.BBM1.brake()
+psm.BAM1.brake()
