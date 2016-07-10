@@ -110,6 +110,7 @@ brake()
 move("backward")
 distance(0.1)
 brake()
+sleep(0.4)
 ninetydegrees("right")
 
 greenfound = False
@@ -152,6 +153,7 @@ if not greenfound:
         move("forward")
         distance(1)
         brake()
+        sleep(0.4)
         ninetydegrees("left")
         move("forward")
         distance(0.5)
