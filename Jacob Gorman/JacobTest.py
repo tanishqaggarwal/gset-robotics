@@ -30,9 +30,9 @@ while(not exit):
     color = hc.get_colornum()
     if(light <= 550):
         psm.BBM2.brake()
-        psm.BBM1.setSpeed(-25)
+        psm.BBM1.setSpeed(-5)
     else:
-        psm.BBM1.setSpeed(12.5)
+        psm.BBM1.brake()
         psm.BBM2.setSpeed(-5)
     if(color == red or color == red2):
         psm.BBM2.brake()
