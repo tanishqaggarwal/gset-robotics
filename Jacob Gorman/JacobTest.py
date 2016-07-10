@@ -13,7 +13,6 @@ red = 9
 red2 = 8
 green = 4
 purple = 12
-
 counter = 0
 last_time = datetime.now()
 exit = False
