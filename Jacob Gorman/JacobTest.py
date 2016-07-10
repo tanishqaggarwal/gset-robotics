@@ -75,7 +75,7 @@ while(not exit):
         brake()
         ninetydegrees("left")
         move("forward")
-        distance(0.2)
+        distance(0.3)
         brake()
         ninetydegrees("right")
     else:
