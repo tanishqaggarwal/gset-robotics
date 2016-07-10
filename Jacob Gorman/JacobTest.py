@@ -33,12 +33,12 @@ def ninetydegrees(direction):
         s = 1
 
 def touch():
-    if psm.BAS2.isTouchedEV3() and psm.BBS2.isTouchedEV3():
+    if (psm.BAS2.isTouchedNXT() and psm.BBS2.isTouchedNXT()):
         return True
     return False
 
 def masontouch():
-    if psm.BAS2.isTouchedEV3() or psm.BBS2.isTouchedEV3():
+    if (psm.BAS2.isTouchedNXT() or psm.BBS2.isTouchedNXT()):
         return True
     return False
 
@@ -77,7 +77,7 @@ while(not exit):
             psm.screen.clearScreen()
             psm.screen.termPrintln(str(counter))
             exit = True
-        elif(color == blue):
+        elif(color == blue or color == green):
             if((datetime.now() - last_time).seconds > 0):
                 counter += 1
                 last_time = datetime.now()
@@ -102,6 +102,7 @@ greenfound = False
 
 t = datetime.now()
 done = False
+print "In stage where it's moving towards right room"
 while(not done):
     move("forward")
     color = hc.get_colornum()
@@ -115,26 +116,33 @@ while(not done):
         break
 
 if not greenfound:
+
+    print "In stage where it's moving towards left room"
     t = datetime.now()
     done = False
     while(not done):
-        psm.BAM1.setSpeedSync(-50)
+        move("backward")
         color = hc.get_colornum()
-        if (color == green or touch()):
-            sleep(0.5)
-            psm.BAM1.brake()
-            psm.BBM1.brake()
+        if (color == purple):
             done = True
-            if (color == green):
-                greenfound = True
+            break
+        if (color == green):
+            sleep(0.5)
+            done = True
+            greenfound = True
             break
 
+    psm.BAM1.brake()
+    psm.BBM1.brake()
+
     if not greenfound:
-        move("backward")
+        print "Now moving towards central room."
+        move("forward")
         sleep(3)
         ninetydegrees("left")
         move("forward")
-        sleep(3)
+        sleep(0.5)
         psm.BAM1.brake()
         psm.BBM1.brake()
 
+print "Now in green room."
