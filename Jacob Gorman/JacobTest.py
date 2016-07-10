@@ -25,6 +25,14 @@ def ninetydegrees(s) :
     psm.BBM1.brake()
     psm.BAM1.brake()
 
+def move(direction):
+    if direction == "forward":
+        psm.BAM1.setSpeed(-100)
+        psm.BBM1.setSpeed(-90)
+    else:
+        psm.BAM1.setSpeed(100)
+        psm.BBM1.setSpeed(90)
+
 while(not exit):
     light = psm.BAS1.lightSensorNXT(True)
     color = hc.get_colornum()
@@ -55,12 +63,10 @@ psm.led(1, 255, 255, 255)
 sleep(1)
 psm.led(1,0,0,0)
 
-psm.BAM1.setSpeed(-100)
-psm.BBM1.setSpeed(-90)
+move("forward")
 sleep(2.5)
-psm.BAM1.brake()
-psm.BBM1.brake()
-"""sleep(0.2)
+move("backward")
+sleep(0.1)
 ninetydegrees(1)
 
 greenfound = False
@@ -68,7 +74,7 @@ greenfound = False
 t = datetime.now()
 done = False
 while(not done and (datetime.now() - t).seconds < 15):
-    psm.BAM1.setSpeedSync(-50)
+    move("forward")
     color = hc.get_colornum()
     if color == green:
         sleep(0.5)
@@ -93,11 +99,11 @@ if not greenfound:
             break
 
     if not greenfound:
-        psm.BAM1.setSpeedSync(50)
+        move("backward")
         sleep(3)
         ninetydegrees(-1)
-        psm.BAM1.setSpeedSync(-50)
+        move("forward")
         sleep(3)
         psm.BAM1.brake()
-        psm.BBM1.brake()"""
+        psm.BBM1.brake()
 
