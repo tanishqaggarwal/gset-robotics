@@ -32,9 +32,9 @@ def brake():
 
 def ninetydegrees(direction):
     if direction == "right":
-        s = -1
-    else:
         s = 1
+    else:
+        s = -1
 
     psm.BAM1.setSpeed(s * 50)
     psm.BBM1.setSpeed(s * -50)
@@ -93,9 +93,9 @@ while(not exit):
                 last_time = datetime.now()
                 psm.screen.clearScreen()
                 psm.screen.termPrintln("I'm functioning Properly")
-        if (psm.isKeyPressed()):
-            brake()
-            exit = True
+
+psm.screen.clearScreen()
+psm.screen.termPrintln(str(counter))
 
 psm.led(1, 255, 255, 255)
 sleep(1)

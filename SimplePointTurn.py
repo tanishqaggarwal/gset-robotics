@@ -7,10 +7,20 @@ print "running program"
 
 psm = PiStorms()
 
-psm.BBM1.setSpeed(50)
-psm.BBM2.setSpeed(-50)
+def brake():
+    psm.BAM1.brake()
+    psm.BBM1.brake()
 
-sleep(0.2855)
+def ninetydegrees(direction):
+    if direction == "right":
+        s = 1
+    else:
+        s = -1
 
-psm.BBM1.brake()
-psm.BBM2.brake()
+    psm.BAM1.setSpeed(s * 50)
+    psm.BBM1.setSpeed(s * -50)
+    sleep(0.285)
+    brake()
+
+ninetydegrees("left")
+ninetydegrees("right")
