@@ -74,7 +74,7 @@ while(not exit):
         distance(1)
         brake()
         ninetydegrees("left")
-        while(hc.get_colornum() < 550):
+        while(psm.BAS1.lightSensorNXT(True) < 550):
             move("forward")
         brake()
         ninetydegrees("right")
