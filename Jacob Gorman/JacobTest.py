@@ -105,7 +105,7 @@ done = False
 while(not done):
     move("forward")
     color = hc.get_colornum()
-    if (color == green or if touch()):
+    if (color == green or touch()):
         sleep(0.5)
         psm.BAM1.brake()
         psm.BBM1.brake()
