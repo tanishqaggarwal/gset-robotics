@@ -74,8 +74,8 @@ while(not exit):
         distance(1)
         brake()
         ninetydegrees("left")
-        move("forward")
-        distance(0.3)
+        while(hc.get_colornum() < 550):
+            move("forward")
         brake()
         ninetydegrees("right")
     else:
