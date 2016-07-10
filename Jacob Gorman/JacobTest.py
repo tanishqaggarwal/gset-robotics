@@ -38,7 +38,7 @@ def touch():
     return False
 
 def masontouch():
-    if psm.BAS2.isTouchedEV3() or psm.BAS1.isTouchedEV3():
+    if psm.BAS2.isTouchedEV3() or psm.BBS2.isTouchedEV3():
         return True
     return False
 
