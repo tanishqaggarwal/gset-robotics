@@ -33,7 +33,7 @@ def ninetydegrees(direction):
         s = 1
 
 def touch():
-    if psm.BAS2.isTouchedEV3() and psm.BAS1.isTouchedEV3():
+    if psm.BAS2.isTouchedEV3() and psm.BBS2.isTouchedEV3():
         return True
     return False
 
