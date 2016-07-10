@@ -55,11 +55,13 @@ psm.led(1, 255, 255, 255)
 sleep(1)
 psm.led(1,0,0,0)
 
-psm.BAM1.setSpeedSync(-50)
-sleep(5)
-psm.BAM1.setSpeedSync(20)
-sleep(1)
+psm.BAM1.setSpeedSync(-20)
+sleep(2.5)
+psm.BAM1.setSpeedSync(50)
+sleep(0.2)
 ninetydegrees(1)
+
+greenfound = False
 t = datetime.now()
 done = False
 while(not done and (datetime.now() - t).seconds < 15):
@@ -70,22 +72,28 @@ while(not done and (datetime.now() - t).seconds < 15):
         psm.BAM1.brake()
         psm.BAM2.brake()
         done = True
+        greenfound = True
         break
-t = datetime.now()
-done = False
-while(not done and (datetime.now()-t).seconds < 20):
-    psm.BAM1.setSpeedSync(-50)
-    color = hc.get_colornum()
-    if color == green:
-        sleep(0.5)
+
+if not greenfound:
+    t = datetime.now()
+    done = False
+    while(not done and (datetime.now()-t).seconds < 20):
+        psm.BAM1.setSpeedSync(-50)
+        color = hc.get_colornum()
+        if color == green:
+            sleep(0.5)
+            psm.BAM1.brake()
+            psm.BAM2.brake()
+            done = True
+            greenfound = True
+            break
+
+    if not greenfound:
+        psm.BAM1.setSpeedSync(50)
+        sleep(3)
+        ninetydegrees(-1)
+        psm.BAM1.setSpeedSync(-50)
+        sleep(3)
         psm.BAM1.brake()
         psm.BAM2.brake()
-        done = True
-        break
-psm.BAM1.setSpeedSync(50)
-sleep(3)
-ninetydegrees(-1)
-psm.BAM1.setSpeedSync(-50)
-sleep(3)
-psm.BAM1.brake()
-psm.BAM2.brake()
