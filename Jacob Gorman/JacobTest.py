@@ -38,7 +38,7 @@ def ninetydegrees(direction):
 
     psm.BAM1.setSpeed(s * 100)
     psm.BBM1.setSpeed(s * -100)
-    sleep(0.285)
+    distance(0.285)
     brake()
 
 def touch():
@@ -51,6 +51,9 @@ def masontouch():
         return True
     return False
 
+def distance(feet):
+    CONSTANT_MULTIPLIER = 1
+    sleep(feet * CONSTANT_MULTIPLIER)
 
 while(not exit):
     light = psm.BAS1.lightSensorNXT(True)
@@ -59,19 +62,19 @@ while(not exit):
     if masontouch():
         #Do circumvention routine
         move("backward")
-        sleep(0.5)
+        distance(0.5)
         brake()
         ninetydegrees("right")
         move("forward")
-        sleep(1)
+        distance(1)
         brake()
         ninetydegrees("left")
         move("forward")
-        sleep(1.5)
+        distance(1.5)
         brake()
         ninetydegrees("left")
         move("forward")
-        sleep(0.4)
+        distance(0.4)
         brake()
         ninetydegrees("right")
     else:
@@ -98,14 +101,14 @@ psm.screen.clearScreen()
 psm.screen.termPrintln(str(counter))
 
 psm.led(1, 255, 255, 255)
-sleep(1)
+distance(1)
 psm.led(1,0,0,0)
 
 move("forward")
-sleep(2.5)
+distance(1)
 brake()
 move("backward")
-sleep(0.3)
+distance(0.2)
 brake()
 ninetydegrees("right")
 
@@ -117,7 +120,7 @@ while(not done):
     move("forward")
     color = hc.get_colornum()
     if (color == green or touch()):
-        sleep(0.5)
+        distance(0.5)
         brake()
         done = True
         if (color == green):
@@ -137,7 +140,7 @@ if not greenfound:
             done = True
             break
         if (color == green):
-            sleep(0.5)
+            distance(0.5)
             done = True
             greenfound = True
             break
@@ -147,11 +150,11 @@ if not greenfound:
     if not greenfound:
         print "Now moving towards central room."
         move("forward")
-        sleep(3)
+        distance(1)
         brake()
         ninetydegrees("left")
         move("forward")
-        sleep(0.5)
+        distance(0.5)
         brake()
 
 print "Now in green room."
