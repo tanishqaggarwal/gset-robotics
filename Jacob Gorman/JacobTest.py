@@ -12,6 +12,7 @@ blue = 2
 red = 9
 red2 = 8
 green = 4
+purple = 12
 
 counter = 0
 last_time = datetime.now()
@@ -62,6 +63,7 @@ sleep(0.2)
 ninetydegrees(1)
 
 greenfound = False
+
 t = datetime.now()
 done = False
 while(not done and (datetime.now() - t).seconds < 15):
