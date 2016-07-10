@@ -25,7 +25,6 @@ def ninetydegrees(s) :
     psm.BBM2.brake()
     psm.BBM1.brake()
 
-
 while(not exit):
     light = psm.BAS1.lightSensorNXT(True)
     color = hc.get_colornum()
@@ -56,9 +55,9 @@ psm.led(1, 255, 255, 255)
 sleep(1)
 psm.led(1,0,0,0)
 
-psm.BBM1.setSpeedSync(-20)
+psm.BAM1.setSpeedSync(-50)
 sleep(2.5)
-psm.BBM1.setSpeedSync(50)
+"""psm.BAM1.setSpeedSync(50)
 sleep(0.2)
 ninetydegrees(1)
 
@@ -97,5 +96,12 @@ if not greenfound:
         ninetydegrees(-1)
         psm.BBM1.setSpeedSync(-50)
         sleep(3)
+<<<<<<< HEAD
         psm.BBM1.brake()
         psm.BBM2.brake()
+=======
+        psm.BAM1.brake()
+        psm.BAM2.brake()
+"""
+psm.BAM1.brake()
+psm.BAM2.brake()
