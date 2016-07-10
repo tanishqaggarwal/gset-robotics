@@ -25,7 +25,7 @@ psm.BAM1.resetPos()
 initialEncoderValue = psm.BAM1.pos()
 while(psm.BAM1.pos()< translate+initialEncoderValue):
     psm.BAM1.setSpeed(50)
-    psm.BAM2.setSpeed(-50)g
+    psm.BAM2.setSpeed(-50)
 
 psm.led(1, 255, 255, 255)
 sleep(1)
