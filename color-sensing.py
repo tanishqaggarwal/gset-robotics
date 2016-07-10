@@ -18,4 +18,3 @@ while(not exit):
 		psm.screen.termPrintln("Exiting to menu")
 		sleep(0.5)
 		exit = True
-	os.system("cls")
