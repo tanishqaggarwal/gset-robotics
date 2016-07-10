@@ -19,25 +19,24 @@ last_time = datetime.now()
 exit = False
 
 def ninetydegrees(s) :
-    psm.BBM1.setSpeed(s * 50)
-    psm.BBM2.setSpeed(s * -50)
+    psm.BAM1.setSpeed(s * 50)
+    psm.BAM2.setSpeed(s * -50)
     sleep(0.285)
-    psm.BBM2.brake()
-    psm.BBM1.brake()
-
+    psm.BAM2.brake()
+    psm.BAM1.brake()
 
 while(not exit):
     light = psm.BAS1.lightSensorNXT(True)
     color = hc.get_colornum()
     if(light <= 550):
-        psm.BBM2.brake()
-        psm.BBM1.setSpeed(-20)
+        psm.BAM2.brake()
+        psm.BAM1.setSpeed(-20)
     else:
-        psm.BBM1.brake()
-        psm.BBM2.setSpeed(-10)
+        psm.BAM1.brake()
+        psm.BAM2.setSpeed(-10)
     if(color == red or color == red2):
-        psm.BBM2.brake()
-        psm.BBM1.brake()
+        psm.BAM2.brake()
+        psm.BAM1.brake()
         psm.screen.clearScreen()
         psm.screen.termPrintln(str(counter))
         exit = True
@@ -48,22 +47,20 @@ while(not exit):
             psm.screen.clearScreen()
             psm.screen.termPrintln("I'm functioning Properly")
     if (psm.isKeyPressed()):
-        psm.BBM1.brake()
-        psm.BBM2.brake()
+        psm.BAM1.brake()
+        psm.BAM2.brake()
         exit = True
 
 psm.led(1, 255, 255, 255)
 sleep(1)
 psm.led(1,0,0,0)
 
-psm.BBM1.setSpeed(-50)
-psm.BBM2.setSpeed(-50)
+psm.BAM1.setSpeed(-50)
+psm.BAM2.setSpeed(-50)
 sleep(2.5)
-"""
-psm.BAM1.setSpeedSync(-20)
-sleep(2.5)
-psm.BAM1.setSpeedSync(50)
-sleep(0.2)
+psm.BAM1.brake()
+psm.BAM2.brake()
+"""sleep(0.2)
 ninetydegrees(1)
 
 greenfound = False
@@ -71,12 +68,12 @@ greenfound = False
 t = datetime.now()
 done = False
 while(not done and (datetime.now() - t).seconds < 15):
-    psm.BBM1.setSpeedSync(-50)
+    psm.BAM1.setSpeedSync(-50)
     color = hc.get_colornum()
     if color == green:
         sleep(0.5)
-        psm.BBM1.brake()
-        psm.BBM2.brake()
+        psm.BAM1.brake()
+        psm.BAM2.brake()
         done = True
         greenfound = True
         break
@@ -85,24 +82,22 @@ if not greenfound:
     t = datetime.now()
     done = False
     while(not done and (datetime.now()-t).seconds < 20):
-        psm.BBM1.setSpeedSync(-50)
+        psm.BAM1.setSpeedSync(-50)
         color = hc.get_colornum()
         if color == green:
             sleep(0.5)
-            psm.BBM1.brake()
-            psm.BBM2.brake()
+            psm.BAM1.brake()
+            psm.BAM2.brake()
             done = True
             greenfound = True
             break
 
     if not greenfound:
-        psm.BBM1.setSpeedSync(50)
+        psm.BAM1.setSpeedSync(50)
         sleep(3)
         ninetydegrees(-1)
-        psm.BBM1.setSpeedSync(-50)
+        psm.BAM1.setSpeedSync(-50)
         sleep(3)
-        psm.BBM1.brake()
-        psm.BBM2.brake()
-"""
-psm.BAM1.brake()
-psm.BAM2.brake()
+        psm.BAM1.brake()
+        psm.BAM2.brake()"""
+
