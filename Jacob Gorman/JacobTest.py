@@ -60,43 +60,46 @@ while(not exit):
     light = psm.BAS1.lightSensorNXT(True)
     color = hc.get_colornum()
 
-    if masontouch():
-        #Do circumvention routine
-        move("backward")
-        distance(0.25)
-        brake()
-        ninetydegrees("right")
-        move("forward")
-        distance(0.5)
-        brake()
-        ninetydegrees("left")
-        move("forward")
-        distance(1.2)
-        brake()
-        ninetydegrees("left")
-        while(psm.BAS1.lightSensorNXT(True) < 550):
-            move("forward")
-        brake()
-        ninetydegrees("right")
-    else:
+    # if masontouch():
+    #     #Do circumvention routine
+    #     move("backward")
+    #     distance(0.25)
+    #     brake()
+    #     ninetydegrees("right")
+    #     move("forward")
+    #     distance(0.5)
+    #     brake()
+    #     ninetydegrees("left")
+    #     move("forward")
+    #     distance(1.2)
+    #     brake()
+    #     ninetydegrees("left")
+    #     while(psm.BAS1.lightSensorNXT(True) < 550):
+    #         move("forward")
+    #     brake()
+    #     ninetydegrees("right")
+    # else:
         #line follow, victim track
-        if(light <= 550):
-            psm.BBM1.brake()
-            psm.BAM1.setSpeed(-50)
-        else:
-            psm.BAM1.setSpeed(25)
-            psm.BBM1.setSpeed(-50)
-        if(color == red or color == red2):
-            brake()
+    if(light <= 550):
+        psm.BBM1.brake()
+        psm.BAM1.setSpeed(-50)
+    else:
+        psm.BAM1.setSpeed(25)
+        psm.BBM1.setSpeed(-50)
+    if(color == red or color == red2):
+        brake()
+        psm.screen.clearScreen()
+        psm.screen.termPrintln(str(counter))
+        exit = True
+    elif(color == blue or color == green):
+        if((datetime.now() - last_time).seconds > 0):
+            counter += 1
+            last_time = datetime.now()
             psm.screen.clearScreen()
-            psm.screen.termPrintln(str(counter))
-            exit = True
-        elif(color == blue or color == green):
-            if((datetime.now() - last_time).seconds > 0):
-                counter += 1
-                last_time = datetime.now()
-                psm.screen.clearScreen()
-                psm.screen.termPrintln("Victim found: total number: " + str(counter))
+
+            victim_string = "Victim found: total number: " + str(counter)
+            print victim_string
+            psm.screen.termPrintln(victim_string)
 
 psm.screen.clearScreen()
 psm.screen.termPrintln(str(counter))
