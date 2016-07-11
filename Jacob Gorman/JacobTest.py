@@ -105,65 +105,65 @@ psm.led(1, 255, 255, 255)
 distance(1)
 psm.led(1,0,0,0)
 
-move("forward")
-distance(1)
-brake()
-move("backward")
-distance(0.15)
-brake()
-ninetydegrees("right")
+# move("forward")
+# distance(1)
+# brake()
+# move("backward")
+# distance(0.15)
+# brake()
+# ninetydegrees("right")
 
-greenfound = False
+# greenfound = False
 
-done = False
-print "In stage where it's moving towards right room"
-while(not done):
-    move("forward")
-    color = hc.get_colornum()
-    if (color == green or touch()):
-        distance(0.5)
-        brake()
-        done = True
-        if (color == green):
-            greenfound = True
-        break
+# done = False
+# print "In stage where it's moving towards right room"
+# while(not done):
+#     move("forward")
+#     color = hc.get_colornum()
+#     if (color == green or touch()):
+#         distance(0.5)
+#         brake()
+#         done = True
+#         if (color == green):
+#             greenfound = True
+#         break
 
-brake()
+# brake()
 
-if not greenfound:
-    t = datetime.now()
-    print "In stage where it's moving towards left room"
-    done = False
-    while(not done):
-        move("backward")
-        color = hc.get_colornum()
-        if (color == purple2 or color == purple): #mason touch for testing purposes
-            done = True
-            break
-        if (color == green):
-            distance(0.5)
-            done = True
-            greenfound = True
-            break
-	if ((datetime.now() - t).seconds > 15):
-	    done = True
-            move("forward")
-            distance(0.7)
-            break
+# if not greenfound:
+#     t = datetime.now()
+#     print "In stage where it's moving towards left room"
+#     done = False
+#     while(not done):
+#         move("backward")
+#         color = hc.get_colornum()
+#         if (color == purple2 or color == purple): #mason touch for testing purposes
+#             done = True
+#             break
+#         if (color == green):
+#             distance(0.5)
+#             done = True
+#             greenfound = True
+#             break
+# 	if ((datetime.now() - t).seconds > 15):
+# 	    done = True
+#             move("forward")
+#             distance(0.7)
+#             break
 
-    brake()
+#     brake()
 
-    if not greenfound:
-        print "Now moving towards central room."
-        move("forward")
-        distance(0.5)
-        brake()
-        ninetydegrees("left")
-        move("forward")
-        distance(0.5)
-        brake()
+#     if not greenfound:
+#         print "Now moving towards central room."
+#         move("forward")
+#         distance(0.5)
+#         brake()
+#         ninetydegrees("left")
+#         move("forward")
+#         distance(0.5)
+#         brake()
 
-print "Now in green room."
-psm.led(1, 0, 255, 0)
-distance(1)
-psm.led(1,0,0,0)
+# print "Now in green room."
+# psm.led(1, 0, 255, 0)
+# distance(1)
+# psm.led(1,0,0,0)
