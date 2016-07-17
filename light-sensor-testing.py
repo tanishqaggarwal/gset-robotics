@@ -7,8 +7,7 @@
  
  while(not exit):
      light = psm.BAS1.lightSensorNXT(True)
-     psm.screen.clearScreen()
-     psm.screen.termPrintln(str(light))
+     print light
  
      if (psm.isKeyPressed() == True):
          exit = True 
