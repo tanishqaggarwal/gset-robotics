@@ -84,7 +84,7 @@ while(not exit):
         psm.BBM1.brake()
         psm.BAM1.setSpeed(-50)
     else:
-        psm.BAM1.setSpeed(25)
+        psm.BAM1.setSpeed(10)
         psm.BBM1.setSpeed(-50)
     if(color == red or color == red2):
         brake()
