@@ -34,7 +34,7 @@ def gtfo():
 
 	psm.BBM1.setSpeed(INV_ALTERNATOR * 100)
 	psm.BBM2.setSpeed(INV_ALTERNATOR * 100)
-	sleep(0.2)
+	sleep(1)
 	#turn_180()
 
 def find_other_robot():
