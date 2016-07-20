@@ -5,7 +5,8 @@ psm = PiStorms()
 
 DISTANCE_THRESHOLD = 700
 
-WHITE_THRESHOLD = 
+WHITE_THRESHOLD = 400
+BLACK_THRESHOLD = 700
 WHITE = [12,13,14]
 
 ALTERNATOR = 1 # Used if I fucked up the motor orientation and -1 is actually how we move forward
@@ -20,7 +21,7 @@ def seeing_other_robot():
 	return distance() < DISTANCE_THRESHOLD
 
 def near_edge():
-	return psm.BAS2.lightSensorNXT(True) > WHITE_THRESHOLD or psm.BAS1.colorSensorNXT() in WHITE
+	return psm.BAS2.lightSensorNXT(True) > WHITE_THRESHOLD and psm.BAS2.lightSensorNXT(True) < BLACK_THRESHOLD or psm.BAS1.colorSensorNXT() in WHITE
 
 def gtfo():
 	def turn_180():
