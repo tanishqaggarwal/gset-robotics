@@ -6,7 +6,7 @@ psm = PiStorms()
 exit = False
  
 while(not exit):
-    light = psm.BAS1.lightSensorNXT(True)
+    light = psm.BAS2.lightSensorNXT(True)
     print light
 
     if (psm.isKeyPressed() == True):
