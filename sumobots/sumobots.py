@@ -38,7 +38,7 @@ def gtfo():
 
 def find_other_robot():
 	psm.BBM1.setSpeed(ALTERNATOR * 100)
-	psm.BBM2.setSpeed(INV_ALTENRATOR * 100)
+	psm.BBM2.setSpeed(INV_ALTERNATOR * 100)
 	if seeing_other_robot():
 		psm.BBM1.brake()
 		psm.BBM2.brake()
@@ -63,8 +63,8 @@ while (not exit):
 		psm.BBM1.brake()
 		psm.BBM2.brake()
 		psm.screen.clearScreen()
-	    psm.screen.termPrintln("")
-	    psm.screen.termPrintln("Exiting to menu")
-	    psm.led(1,0,0,0)    
-	    sleep(0.5)
-	    exit = True
+		psm.screen.termPrintln("")
+		psm.screen.termPrintln("Exiting to menu")
+		psm.led(1,0,0,0)    
+		sleep(0.5)
+		exit = True
