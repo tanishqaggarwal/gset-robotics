@@ -9,7 +9,7 @@ WHITE_THRESHOLD = 400
 BLACK_THRESHOLD = 700
 WHITE = [12,13,14]
 
-ALTERNATOR = 1 # Used if I fucked up the motor orientation and -1 is actually how we move forward
+ALTERNATOR = -1 # Used if I fucked up the motor orientation and -1 is actually how we move forward
 INV_ALTERNATOR = 0 - ALTERNATOR
 
 sleep(5)
