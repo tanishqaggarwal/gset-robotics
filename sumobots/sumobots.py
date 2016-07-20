@@ -3,9 +3,9 @@ from time import sleep
 print "running program"
 psm = PiStorms()
 
-DISTANCE_THRESHOLD = 90
+DISTANCE_THRESHOLD = 700
 
-WHITE_THRESHOLD = ""
+WHITE_THRESHOLD = 
 WHITE = ""
 
 ALTERNATOR = 1 # Used if I fucked up the motor orientation and -1 is actually how we move forward
