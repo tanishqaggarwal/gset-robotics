@@ -6,7 +6,7 @@ psm = PiStorms()
 DISTANCE_THRESHOLD = 700
 
 WHITE_THRESHOLD = 400
-BLACK_THRESHOLD = 700
+BLACK_THRESHOLD = 900
 WHITE = [12,13,14]
 
 ALTERNATOR = -0.1 # Used if I fucked up the motor orientation and -1 is actually how we move forward
