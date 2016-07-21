@@ -12,8 +12,6 @@ WHITE = [12,13,14]
 ALTERNATOR = -1 # Used if I fucked up the motor orientation and -1 is actually how we move forward
 INV_ALTERNATOR = 0 - ALTERNATOR
 
-sleep(5)
-
 def distance():
 	return psm.BBS1.distanceUSEV3()
 
